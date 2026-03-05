@@ -3,235 +3,302 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Générateur de Signature - M&E Consulting</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>Signature Email - M&E Consulting</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
-      font-family: 'Inter', Arial, sans-serif;
-      background: #F0F2F5;
+      font-family: 'DM Sans', Arial, sans-serif;
+      background: #EAEFF4;
       min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 40px 20px;
     }
-    .container {
-      max-width: 920px;
-      width: 100%;
-    }
-    .header {
+
+    /* HERO */
+    .hero {
+      background: #162139;
+      padding: 50px 20px 60px;
       text-align: center;
-      margin-bottom: 40px;
+      position: relative;
+      overflow: hidden;
     }
-    .header-logo {
-      height: 80px;
-      margin-bottom: 20px;
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 40px;
+      background: #EAEFF4;
+      border-radius: 40px 40px 0 0;
     }
-    .header h1 {
-      font-size: 26px;
-      color: #162139;
+    .hero-logo {
+      height: 64px;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-size: 28px;
+      color: white;
       font-weight: 700;
       letter-spacing: -0.5px;
     }
-    .header p {
-      font-size: 14px;
-      color: #7A8A9E;
-      margin-top: 8px;
+    .hero p {
+      font-size: 15px;
+      color: #8DA4C7;
+      margin-top: 10px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
     }
+
+    /* LAYOUT */
+    .main {
+      max-width: 960px;
+      margin: -10px auto 0;
+      padding: 0 20px 60px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* CARDS */
     .card {
       background: white;
-      border-radius: 16px;
-      padding: 36px;
-      box-shadow: 0 2px 20px rgba(22,33,57,0.06);
-      margin-bottom: 28px;
-    }
-    .card-title {
-      font-size: 11px;
-      color: #7A8A9E;
-      text-transform: uppercase;
-      letter-spacing: 2px;
+      border-radius: 14px;
+      padding: 32px;
+      box-shadow: 0 1px 12px rgba(22,33,57,0.05);
       margin-bottom: 24px;
-      font-weight: 600;
     }
+    .card-label {
+      display: inline-block;
+      font-size: 10px;
+      color: #5B8EC2;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      background: #EDF3FA;
+      padding: 5px 12px;
+      border-radius: 6px;
+    }
+
+    /* FORM */
     .form-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 18px;
-    }
-    .form-group {
-      display: flex;
-      flex-direction: column;
+      gap: 16px;
     }
     .form-group label {
-      font-size: 12px;
+      display: block;
+      font-size: 13px;
       font-weight: 600;
       color: #162139;
       margin-bottom: 6px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
     }
     .form-group input {
-      font-family: 'Inter', Arial, sans-serif;
+      font-family: 'DM Sans', Arial, sans-serif;
+      width: 100%;
       font-size: 14px;
-      padding: 12px 16px;
-      border: 2px solid #E2E6ED;
-      border-radius: 10px;
+      padding: 11px 14px;
+      border: 1.5px solid #D8DFE9;
+      border-radius: 8px;
       outline: none;
       color: #162139;
-      transition: border-color 0.2s;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      background: #FAFBFD;
     }
     .form-group input:focus {
       border-color: #5B8EC2;
+      box-shadow: 0 0 0 3px rgba(91,142,194,0.12);
+      background: white;
     }
     .form-group input::placeholder {
       color: #B0BAC9;
     }
-    .preview-wrapper {
-      padding: 30px;
-      background: white;
-      border-radius: 12px;
-      border: 2px dashed #E2E6ED;
+
+    /* PREVIEW */
+    .preview-box {
+      padding: 28px;
+      background: #FAFBFD;
+      border-radius: 10px;
+      border: 1.5px solid #E4E9F0;
     }
-    .btn-copy {
-      font-family: 'Inter', Arial, sans-serif;
+    .btn-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .btn {
+      font-family: 'DM Sans', Arial, sans-serif;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      margin-top: 24px;
-      padding: 14px 28px;
-      background: #162139;
+      padding: 12px 24px;
       color: white;
       border: none;
-      border-radius: 10px;
-      font-size: 14px;
+      border-radius: 8px;
+      font-size: 13px;
       font-weight: 600;
       cursor: pointer;
-      transition: background 0.2s, transform 0.1s;
-      letter-spacing: 0.3px;
+      transition: all 0.2s;
     }
-    .btn-copy:hover {
-      background: #1d2d4d;
-      transform: translateY(-1px);
+    .btn-primary {
+      background: #162139;
     }
-    .btn-copy:active {
-      transform: translateY(0);
+    .btn-primary:hover { background: #1f2f50; }
+    .btn-outline {
+      background: transparent;
+      color: #5B8EC2;
+      border: 1.5px solid #5B8EC2;
     }
-    .btn-copy.copied {
-      background: #5B8EC2;
-    }
-    .btn-secondary {
-      background: #5B8EC2;
-    }
-    .btn-secondary:hover {
-      background: #4a7db1;
+    .btn-outline:hover { background: #EDF3FA; }
+    .btn.copied {
+      background: #2E7D5B !important;
+      color: white !important;
+      border-color: #2E7D5B !important;
     }
 
-    /* TUTORIAL */
-    .tuto-steps {
+    /* TUTO TABS */
+    .tabs {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+    .tab-btn {
+      font-family: 'DM Sans', Arial, sans-serif;
+      padding: 9px 18px;
+      border: 1.5px solid #D8DFE9;
+      background: white;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #5A6B82;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .tab-btn:hover { border-color: #5B8EC2; color: #5B8EC2; }
+    .tab-btn.active {
+      background: #162139;
+      color: white;
+      border-color: #162139;
+    }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* TUTO STEPS */
+    .steps {
       display: flex;
       flex-direction: column;
       gap: 0;
     }
-    .tuto-step {
+    .step {
       display: flex;
-      gap: 18px;
+      gap: 16px;
       align-items: flex-start;
-      position: relative;
     }
-    .step-left {
+    .step-indicator {
       display: flex;
       flex-direction: column;
       align-items: center;
       flex-shrink: 0;
     }
-    .step-number {
-      width: 36px;
-      height: 36px;
-      background: #162139;
-      color: white;
+    .step-dot {
+      width: 32px;
+      height: 32px;
+      background: #EDF3FA;
+      color: #5B8EC2;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 700;
-      flex-shrink: 0;
     }
-    .step-line {
+    .step-bar {
       width: 2px;
       flex-grow: 1;
-      background: #D4DFED;
-      min-height: 20px;
+      background: #E4E9F0;
+      min-height: 16px;
     }
-    .tuto-step:last-child .step-line {
-      display: none;
+    .step:last-child .step-bar { display: none; }
+    .step-body {
+      padding-bottom: 24px;
     }
-    .step-content {
-      padding-bottom: 28px;
-    }
-    .tuto-step:last-child .step-content {
-      padding-bottom: 0;
-    }
-    .step-content h3 {
-      font-size: 15px;
+    .step:last-child .step-body { padding-bottom: 0; }
+    .step-body h4 {
+      font-size: 14px;
       font-weight: 700;
       color: #162139;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
-    .step-content p {
+    .step-body p {
       font-size: 13px;
       color: #5A6B82;
       line-height: 1.6;
     }
-    .step-content .path {
+    .step-body .tag {
       display: inline-block;
-      background: #EDF2F8;
+      background: #EDF3FA;
       color: #5B8EC2;
-      padding: 3px 10px;
-      border-radius: 6px;
-      font-size: 12px;
-      font-weight: 600;
-      margin-top: 6px;
-      letter-spacing: 0.3px;
-    }
-    .step-content .shortcut {
-      display: inline-block;
-      background: #162139;
-      color: white;
-      padding: 2px 8px;
+      padding: 2px 9px;
       border-radius: 5px;
       font-size: 11px;
       font-weight: 600;
+      margin-top: 5px;
     }
-    .tuto-note {
+    .step-body .kbd {
+      display: inline-block;
+      background: #162139;
+      color: white;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+    .tip {
       margin-top: 20px;
-      padding: 14px 18px;
-      background: #FFF8E6;
-      border-radius: 10px;
+      padding: 14px 16px;
+      background: #FDF6E3;
+      border-radius: 8px;
       font-size: 13px;
-      color: #8B6E00;
+      color: #7A6200;
       line-height: 1.5;
-      border-left: 3px solid #F5C842;
+      border-left: 3px solid #E8C840;
     }
+
+    /* FOOTER */
+    .footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 12px;
+      color: #9AAAB8;
+    }
+    .footer a { color: #5B8EC2; text-decoration: none; }
+
     @media (max-width: 600px) {
       .form-grid { grid-template-columns: 1fr; }
-      body { padding: 20px 12px; }
-      .card { padding: 24px 18px; }
+      .card { padding: 22px 16px; }
+      .hero h1 { font-size: 22px; }
+      .tabs { gap: 4px; }
+      .tab-btn { padding: 7px 12px; font-size: 12px; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="header">
-      <img src="logo.png" alt="M&E Consulting" class="header-logo">
-      <h1>Générateur de Signature Email</h1>
-      <p>Remplis tes informations, copie ta signature et colle-la dans Gmail</p>
-    </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <img src="logo-white.png" alt="M&amp;E Consulting" class="hero-logo">
+    <h1>Générateur de Signature Email</h1>
+    <p>Remplis tes informations, copie ta signature et ajoute-la à ton client mail en 2 minutes.</p>
+  </div>
+
+  <div class="main">
 
     <!-- FORMULAIRE -->
     <div class="card">
-      <p class="card-title">Tes informations</p>
+      <span class="card-label">Tes informations</span>
       <div class="form-grid">
         <div class="form-group">
           <label>Prénom Nom</label>
@@ -254,96 +321,216 @@
 
     <!-- PRÉVISUALISATION -->
     <div class="card">
-      <p class="card-title">Prévisualisation</p>
-      <div class="preview-wrapper">
+      <span class="card-label">Prévisualisation</span>
+      <div class="preview-box">
         <div id="signature-preview"></div>
       </div>
-      <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-        <button class="btn-copy" onclick="copySignature()">
-          <span id="btn-text">📋 Copier la signature</span>
+      <div class="btn-row">
+        <button class="btn btn-primary" id="btnCopy" onclick="copySignature()">
+          📋 Copier la signature
         </button>
-        <button class="btn-copy btn-secondary" onclick="copyHTML()">
-          <span id="btn-html-text">&lt;/&gt; Copier le code HTML</span>
+        <button class="btn btn-outline" id="btnHTML" onclick="copyHTML()">
+          &lt;/&gt; Copier le code HTML
         </button>
       </div>
     </div>
 
     <!-- TUTORIEL -->
     <div class="card">
-      <p class="card-title">Comment ajouter ta signature dans Gmail</p>
-      <div class="tuto-steps">
-        <div class="tuto-step">
-          <div class="step-left">
-            <div class="step-number">1</div>
-            <div class="step-line"></div>
+      <span class="card-label">Installation</span>
+
+      <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab('gmail')">Gmail</button>
+        <button class="tab-btn" onclick="switchTab('outlook')">Outlook</button>
+        <button class="tab-btn" onclick="switchTab('apple')">Apple Mail</button>
+        <button class="tab-btn" onclick="switchTab('thunderbird')">Thunderbird</button>
+      </div>
+
+      <!-- GMAIL -->
+      <div class="tab-panel active" id="tab-gmail">
+        <div class="steps">
+          <div class="step">
+            <div class="step-indicator"><div class="step-dot">1</div><div class="step-bar"></div></div>
+            <div class="step-body">
+              <h4>Copie ta signature</h4>
+              <p>Clique sur <strong>"Copier la signature"</strong> ci-dessus.</p>
+            </div>
           </div>
-          <div class="step-content">
-            <h3>Copie ta signature</h3>
-            <p>Remplis tes informations ci-dessus puis clique sur le bouton <strong>"Copier la signature"</strong>.</p>
+          <div class="step">
+            <div class="step-indicator"><div class="step-dot">2</div><div class="step-bar"></div></div>
+            <div class="step-body">
+              <h4>Ouvre les paramètres Gmail</h4>
+              <p>Sur <a href="https://mail.google.com" target="_blank" style="color:#5B8EC2;font-weight:600;">Gmail</a>, clique sur ⚙️ en haut à droite puis <strong>"Voir tous les paramètres"</strong>.</p>
+              <span class="tag">⚙️ → Voir tous les paramètres</span>
+            </div>
           </div>
-        </div>
-        <div class="tuto-step">
-          <div class="step-left">
-            <div class="step-number">2</div>
-            <div class="step-line"></div>
+          <div class="step">
+            <div class="step-indicator"><div class="step-dot">3</div><div class="step-bar"></div></div>
+            <div class="step-body">
+              <h4>Trouve la section Signature</h4>
+              <p>Dans l'onglet <strong>"Général"</strong>, descends jusqu'à la section <strong>"Signature"</strong>.</p>
+            </div>
           </div>
-          <div class="step-content">
-            <h3>Ouvre les paramètres Gmail</h3>
-            <p>Va sur <a href="https://mail.google.com" target="_blank" style="color: #5B8EC2; font-weight: 600;">mail.google.com</a>, clique sur l'icône ⚙️ en haut à droite, puis sur <strong>"Voir tous les paramètres"</strong>.</p>
-            <span class="path">⚙️ → Voir tous les paramètres</span>
+          <div class="step">
+            <div class="step-indicator"><div class="step-dot">4</div><div class="step-bar"></div></div>
+            <div class="step-body">
+              <h4>Crée et colle</h4>
+              <p>Clique sur <strong>"+ Créer"</strong>, nomme-la "M&amp;E Consulting", puis colle dans la zone de texte.</p>
+              <span class="kbd">Ctrl + V</span> &nbsp;ou&nbsp; <span class="kbd">Cmd + V</span>
+            </div>
           </div>
-        </div>
-        <div class="tuto-step">
-          <div class="step-left">
-            <div class="step-number">3</div>
-            <div class="step-line"></div>
-          </div>
-          <div class="step-content">
-            <h3>Va dans la section Signature</h3>
-            <p>Tu es dans l'onglet <strong>"Général"</strong> par défaut. Descends jusqu'à trouver la section <strong>"Signature"</strong>.</p>
-            <span class="path">Onglet Général → Descendre jusqu'à "Signature"</span>
-          </div>
-        </div>
-        <div class="tuto-step">
-          <div class="step-left">
-            <div class="step-number">4</div>
-            <div class="step-line"></div>
-          </div>
-          <div class="step-content">
-            <h3>Crée une nouvelle signature</h3>
-            <p>Clique sur <strong>"+ Créer"</strong>, donne-lui un nom (ex: "M&E Consulting"), puis clique dans la zone de texte à droite et colle ta signature.</p>
-            <span class="shortcut">Ctrl + V</span> &nbsp;ou&nbsp; <span class="shortcut">Cmd + V</span> &nbsp;sur Mac
-          </div>
-        </div>
-        <div class="tuto-step">
-          <div class="step-left">
-            <div class="step-number">5</div>
-            <div class="step-line"></div>
-          </div>
-          <div class="step-content">
-            <h3>Active ta signature par défaut</h3>
-            <p>Juste en dessous, dans <strong>"Paramètres par défaut de la signature"</strong>, sélectionne ta nouvelle signature pour les <strong>nouveaux e-mails</strong> et les <strong>réponses/transferts</strong>.</p>
-          </div>
-        </div>
-        <div class="tuto-step">
-          <div class="step-left">
-            <div class="step-number">6</div>
-            <div class="step-line"></div>
-          </div>
-          <div class="step-content">
-            <h3>Enregistre</h3>
-            <p>Descends tout en bas de la page et clique sur <strong>"Enregistrer les modifications"</strong>. C'est fait !</p>
+          <div class="step">
+            <div class="step-indicator"><div class="step-dot">5</div><div class="step-bar"></div></div>
+            <div class="step-body">
+              <h4>Active par défaut et enregistre</h4>
+              <p>Dans <strong>"Paramètres par défaut"</strong>, sélectionne ta signature pour les nouveaux mails et réponses. Descends et clique <strong>"Enregistrer les modifications"</strong>.</p>
+            </div>
           </div>
         </div>
       </div>
-      <div class="tuto-note">
-        <strong>Astuce :</strong> si la signature s'affiche mal après le collage, essaie de supprimer tout le contenu de la zone de signature avant de coller. N'utilise pas le mode texte brut.
+
+      <!-- OUTLOOK -->
+      <div class="tab-panel" id="tab-outlook">
+        <div class="steps">
+          <div class="step">
+            <div class="step-indicator"><div class="step-dot">1</div><div class="step-bar"></div></div>
+            <div class="step-body">
+              <h4>Copie le code HTML</h4>
+              <p>Clique sur <strong>"Copier le code HTML"</strong> ci-dessus (le bouton bleu).</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-indicator"><div class="step-dot">2</div><div class="step-bar"></div></div>
+            <div class="step-body">
+              <h4>Ouvre les paramètres Outlook</h4>
+              <p><strong>Outlook Web :</strong> ⚙️ → <strong>Courrier</strong> → <strong>Rédiger et répondre</strong>.</p>
+              <p style="margin-top:4px;"><strong>Outlook Desktop :</strong> <strong>Fichier</strong> → <strong>Options</strong> → <strong>Courrier</strong> → <strong>Signatures</strong>.</p>
+              <span class="tag">Paramètres → Courrier → Signatures</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-indicator"><div class="step-dot">3</div><div class="step-bar"></div></div>
+            <div class="step-body">
+              <h4>Crée une nouvelle signature</h4>
+              <p>Clique sur <strong>"+ Nouvelle signature"</strong> et nomme-la "M&amp;E Consulting".</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-indicator"><div class="step-dot">4</div><div class="step-bar"></div></div>
+            <div class="step-body">
+              <h4>Colle la signature</h4>
+              <p><strong>Outlook Web :</strong> colle directement dans la zone de texte (<span class="kbd">Ctrl + V</span>).</p>
+              <p style="margin-top:4px;"><strong>Outlook Desktop :</strong> dans l'éditeur, clique sur l'onglet <strong>"Source"</strong> ou <strong>"Code source"</strong>, colle le code HTML, puis reviens en mode normal.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-indicator"><div class="step-dot">5</div><div class="step-bar"></div></div>
+            <div class="step-body">
+              <h4>Définis par défaut et enregistre</h4>
+              <p>Sélectionne ta signature comme défaut pour les <strong>nouveaux messages</strong> et les <strong>réponses</strong>, puis enregistre.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- APPLE MAIL -->
+      <div class="tab-panel" id="tab-apple">
+        <div class="steps">
+          <div class="step">
+            <div class="step-indicator"><div class="step-dot">1</div><div class="step-bar"></div></div>
+            <div class="step-body">
+              <h4>Copie le code HTML</h4>
+              <p>Clique sur <strong>"Copier le code HTML"</strong> ci-dessus.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-indicator"><div class="step-dot">2</div><div class="step-bar"></div></div>
+            <div class="step-body">
+              <h4>Crée une signature dans Mail</h4>
+              <p>Ouvre <strong>Mail</strong> → <strong>Réglages</strong> (ou Préférences) → onglet <strong>"Signatures"</strong>. Clique sur <strong>"+"</strong> pour en créer une nouvelle.</p>
+              <span class="tag">Mail → Réglages → Signatures → +</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-indicator"><div class="step-dot">3</div><div class="step-bar"></div></div>
+            <div class="step-body">
+              <h4>Ferme Mail</h4>
+              <p>Quitte complètement l'application Mail.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-indicator"><div class="step-dot">4</div><div class="step-bar"></div></div>
+            <div class="step-body">
+              <h4>Modifie le fichier de signature</h4>
+              <p>Ouvre le Finder, va dans le menu <strong>Aller → Aller au dossier</strong> et entre :</p>
+              <span class="tag">~/Library/Mail/V10/MailData/Signatures/</span>
+              <p style="margin-top:6px;">Ouvre le fichier <strong>.mailsignature</strong> le plus récent avec TextEdit, remplace le contenu HTML par le code copié, puis enregistre.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-indicator"><div class="step-dot">5</div><div class="step-bar"></div></div>
+            <div class="step-body">
+              <h4>Verrouille le fichier</h4>
+              <p>Fais un clic droit sur le fichier → <strong>Lire les informations</strong> → coche <strong>"Verrouillé"</strong> pour empêcher Mail de le réécraser. Rouvre Mail.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- THUNDERBIRD -->
+      <div class="tab-panel" id="tab-thunderbird">
+        <div class="steps">
+          <div class="step">
+            <div class="step-indicator"><div class="step-dot">1</div><div class="step-bar"></div></div>
+            <div class="step-body">
+              <h4>Copie le code HTML</h4>
+              <p>Clique sur <strong>"Copier le code HTML"</strong> ci-dessus.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-indicator"><div class="step-dot">2</div><div class="step-bar"></div></div>
+            <div class="step-body">
+              <h4>Crée un fichier HTML</h4>
+              <p>Ouvre un éditeur de texte (Bloc-notes, TextEdit), colle le code HTML et enregistre le fichier en <strong>signature.html</strong> sur ton bureau.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-indicator"><div class="step-dot">3</div><div class="step-bar"></div></div>
+            <div class="step-body">
+              <h4>Ouvre les paramètres du compte</h4>
+              <p>Dans Thunderbird : <strong>Menu</strong> (☰) → <strong>Paramètres des comptes</strong>.</p>
+              <span class="tag">☰ → Paramètres des comptes</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-indicator"><div class="step-dot">4</div><div class="step-bar"></div></div>
+            <div class="step-body">
+              <h4>Ajoute la signature</h4>
+              <p>Coche <strong>"Apposer la signature à partir d'un fichier"</strong>, puis sélectionne le fichier <strong>signature.html</strong> que tu as créé. Coche aussi <strong>"Utiliser le format HTML"</strong>.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-indicator"><div class="step-dot">5</div><div class="step-bar"></div></div>
+            <div class="step-body">
+              <h4>Enregistre</h4>
+              <p>Clique sur <strong>OK</strong>. Ta signature apparaîtra automatiquement dans tes nouveaux emails.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tip">
+        <strong>Astuce :</strong> si la signature s'affiche mal après le collage, supprime d'abord tout le contenu de la zone de signature avant de coller. N'utilise pas le mode texte brut.
       </div>
     </div>
+
+  </div>
+
+  <div class="footer">
+    M&amp;E Consulting &middot; <a href="https://meconsult.fr" target="_blank">meconsult.fr</a>
   </div>
 
   <script>
-    // Construire l'URL absolue du logo pour la signature email
     function getLogoURL() {
       const base = window.location.href.substring(0, window.location.href.lastIndexOf('/') + 1);
       return base + 'logo.png';
@@ -419,13 +606,12 @@
       document.execCommand('copy');
       selection.removeAllRanges();
 
-      const btn = document.querySelector('.btn-copy');
-      const btnText = document.getElementById('btn-text');
+      const btn = document.getElementById('btnCopy');
       btn.classList.add('copied');
-      btnText.textContent = '✅ Signature copiée !';
+      btn.textContent = '✅ Signature copiée !';
       setTimeout(() => {
         btn.classList.remove('copied');
-        btnText.textContent = '📋 Copier la signature';
+        btn.textContent = '📋 Copier la signature';
       }, 2500);
     }
 
@@ -437,18 +623,23 @@
       const html = generateSignatureHTML(name, title, phone, email);
 
       navigator.clipboard.writeText(html).then(() => {
-        const btn = document.querySelectorAll('.btn-copy')[1];
-        const btnText = document.getElementById('btn-html-text');
+        const btn = document.getElementById('btnHTML');
         btn.classList.add('copied');
-        btnText.textContent = '✅ Code HTML copié !';
+        btn.textContent = '✅ Code HTML copié !';
         setTimeout(() => {
           btn.classList.remove('copied');
-          btnText.textContent = '</> Copier le code HTML';
+          btn.innerHTML = '&lt;/&gt; Copier le code HTML';
         }, 2500);
       });
     }
 
-    // Initialiser la prévisualisation
+    function switchTab(id) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      document.getElementById('tab-' + id).classList.add('active');
+      event.currentTarget.classList.add('active');
+    }
+
     updatePreview();
   </script>
 </body>
