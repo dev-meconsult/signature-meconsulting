@@ -158,34 +158,6 @@
       border-color: #2E7D5B !important;
     }
 
-    /* TUTO TABS */
-    .tabs {
-      display: flex;
-      gap: 6px;
-      margin-bottom: 24px;
-      flex-wrap: wrap;
-    }
-    .tab-btn {
-      font-family: 'DM Sans', Arial, sans-serif;
-      padding: 9px 18px;
-      border: 1.5px solid #D8DFE9;
-      background: white;
-      border-radius: 8px;
-      font-size: 13px;
-      font-weight: 600;
-      color: #5A6B82;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .tab-btn:hover { border-color: #5B8EC2; color: #5B8EC2; }
-    .tab-btn.active {
-      background: #162139;
-      color: white;
-      border-color: #162139;
-    }
-    .tab-panel { display: none; }
-    .tab-panel.active { display: block; }
-
     /* TUTO STEPS */
     .steps {
       display: flex;
@@ -280,8 +252,6 @@
       .form-grid { grid-template-columns: 1fr; }
       .card { padding: 22px 16px; }
       .hero h1 { font-size: 22px; }
-      .tabs { gap: 4px; }
-      .tab-btn { padding: 7px 12px; font-size: 12px; }
     }
   </style>
 </head>
@@ -339,182 +309,34 @@
     <div class="card">
       <span class="card-label">Installation</span>
 
-      <div class="tabs">
-        <button class="tab-btn active" onclick="switchTab('gmail')">Gmail</button>
-        <button class="tab-btn" onclick="switchTab('outlook')">Outlook</button>
-        <button class="tab-btn" onclick="switchTab('apple')">Apple Mail</button>
-        <button class="tab-btn" onclick="switchTab('thunderbird')">Thunderbird</button>
-      </div>
-
-      <!-- GMAIL -->
-      <div class="tab-panel active" id="tab-gmail">
-        <div class="steps">
-          <div class="step">
-            <div class="step-indicator"><div class="step-dot">1</div><div class="step-bar"></div></div>
-            <div class="step-body">
-              <h4>Copie ta signature</h4>
-              <p>Clique sur <strong>"Copier la signature"</strong> ci-dessus.</p>
-            </div>
-          </div>
-          <div class="step">
-            <div class="step-indicator"><div class="step-dot">2</div><div class="step-bar"></div></div>
-            <div class="step-body">
-              <h4>Ouvre les paramètres Gmail</h4>
-              <p>Sur <a href="https://mail.google.com" target="_blank" style="color:#5B8EC2;font-weight:600;">Gmail</a>, clique sur ⚙️ en haut à droite puis <strong>"Voir tous les paramètres"</strong>.</p>
-              <span class="tag">⚙️ → Voir tous les paramètres</span>
-            </div>
-          </div>
-          <div class="step">
-            <div class="step-indicator"><div class="step-dot">3</div><div class="step-bar"></div></div>
-            <div class="step-body">
-              <h4>Trouve la section Signature</h4>
-              <p>Dans l'onglet <strong>"Général"</strong>, descends jusqu'à la section <strong>"Signature"</strong>.</p>
-            </div>
-          </div>
-          <div class="step">
-            <div class="step-indicator"><div class="step-dot">4</div><div class="step-bar"></div></div>
-            <div class="step-body">
-              <h4>Crée et colle</h4>
-              <p>Clique sur <strong>"+ Créer"</strong>, nomme-la "M&amp;E Consulting", puis colle dans la zone de texte.</p>
-              <span class="kbd">Ctrl + V</span> &nbsp;ou&nbsp; <span class="kbd">Cmd + V</span>
-            </div>
-          </div>
-          <div class="step">
-            <div class="step-indicator"><div class="step-dot">5</div><div class="step-bar"></div></div>
-            <div class="step-body">
-              <h4>Active par défaut et enregistre</h4>
-              <p>Dans <strong>"Paramètres par défaut"</strong>, sélectionne ta signature pour les nouveaux mails et réponses. Descends et clique <strong>"Enregistrer les modifications"</strong>.</p>
-            </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-indicator"><div class="step-dot">1</div><div class="step-bar"></div></div>
+          <div class="step-body">
+            <h4>Copie ta signature</h4>
+            <p>Remplis tes informations ci-dessus puis clique sur <strong>"Copier la signature"</strong>.</p>
           </div>
         </div>
-      </div>
-
-      <!-- OUTLOOK -->
-      <div class="tab-panel" id="tab-outlook">
-        <div class="steps">
-          <div class="step">
-            <div class="step-indicator"><div class="step-dot">1</div><div class="step-bar"></div></div>
-            <div class="step-body">
-              <h4>Copie le code HTML</h4>
-              <p>Clique sur <strong>"Copier le code HTML"</strong> ci-dessus (le bouton bleu).</p>
-            </div>
-          </div>
-          <div class="step">
-            <div class="step-indicator"><div class="step-dot">2</div><div class="step-bar"></div></div>
-            <div class="step-body">
-              <h4>Ouvre les paramètres Outlook</h4>
-              <p><strong>Outlook Web :</strong> ⚙️ → <strong>Courrier</strong> → <strong>Rédiger et répondre</strong>.</p>
-              <p style="margin-top:4px;"><strong>Outlook Desktop :</strong> <strong>Fichier</strong> → <strong>Options</strong> → <strong>Courrier</strong> → <strong>Signatures</strong>.</p>
-              <span class="tag">Paramètres → Courrier → Signatures</span>
-            </div>
-          </div>
-          <div class="step">
-            <div class="step-indicator"><div class="step-dot">3</div><div class="step-bar"></div></div>
-            <div class="step-body">
-              <h4>Crée une nouvelle signature</h4>
-              <p>Clique sur <strong>"+ Nouvelle signature"</strong> et nomme-la "M&amp;E Consulting".</p>
-            </div>
-          </div>
-          <div class="step">
-            <div class="step-indicator"><div class="step-dot">4</div><div class="step-bar"></div></div>
-            <div class="step-body">
-              <h4>Colle la signature</h4>
-              <p><strong>Outlook Web :</strong> colle directement dans la zone de texte (<span class="kbd">Ctrl + V</span>).</p>
-              <p style="margin-top:4px;"><strong>Outlook Desktop :</strong> dans l'éditeur, clique sur l'onglet <strong>"Source"</strong> ou <strong>"Code source"</strong>, colle le code HTML, puis reviens en mode normal.</p>
-            </div>
-          </div>
-          <div class="step">
-            <div class="step-indicator"><div class="step-dot">5</div><div class="step-bar"></div></div>
-            <div class="step-body">
-              <h4>Définis par défaut et enregistre</h4>
-              <p>Sélectionne ta signature comme défaut pour les <strong>nouveaux messages</strong> et les <strong>réponses</strong>, puis enregistre.</p>
-            </div>
+        <div class="step">
+          <div class="step-indicator"><div class="step-dot">2</div><div class="step-bar"></div></div>
+          <div class="step-body">
+            <h4>Ouvre les réglages de signature de ton client mail</h4>
+            <p>Dans ton application de messagerie, va dans les <strong>Paramètres</strong> ou <strong>Réglages</strong> et cherche la section <strong>"Signature"</strong>.</p>
           </div>
         </div>
-      </div>
-
-      <!-- APPLE MAIL -->
-      <div class="tab-panel" id="tab-apple">
-        <div class="steps">
-          <div class="step">
-            <div class="step-indicator"><div class="step-dot">1</div><div class="step-bar"></div></div>
-            <div class="step-body">
-              <h4>Copie le code HTML</h4>
-              <p>Clique sur <strong>"Copier le code HTML"</strong> ci-dessus.</p>
-            </div>
-          </div>
-          <div class="step">
-            <div class="step-indicator"><div class="step-dot">2</div><div class="step-bar"></div></div>
-            <div class="step-body">
-              <h4>Crée une signature dans Mail</h4>
-              <p>Ouvre <strong>Mail</strong> → <strong>Réglages</strong> (ou Préférences) → onglet <strong>"Signatures"</strong>. Clique sur <strong>"+"</strong> pour en créer une nouvelle.</p>
-              <span class="tag">Mail → Réglages → Signatures → +</span>
-            </div>
-          </div>
-          <div class="step">
-            <div class="step-indicator"><div class="step-dot">3</div><div class="step-bar"></div></div>
-            <div class="step-body">
-              <h4>Ferme Mail</h4>
-              <p>Quitte complètement l'application Mail.</p>
-            </div>
-          </div>
-          <div class="step">
-            <div class="step-indicator"><div class="step-dot">4</div><div class="step-bar"></div></div>
-            <div class="step-body">
-              <h4>Modifie le fichier de signature</h4>
-              <p>Ouvre le Finder, va dans le menu <strong>Aller → Aller au dossier</strong> et entre :</p>
-              <span class="tag">~/Library/Mail/V10/MailData/Signatures/</span>
-              <p style="margin-top:6px;">Ouvre le fichier <strong>.mailsignature</strong> le plus récent avec TextEdit, remplace le contenu HTML par le code copié, puis enregistre.</p>
-            </div>
-          </div>
-          <div class="step">
-            <div class="step-indicator"><div class="step-dot">5</div><div class="step-bar"></div></div>
-            <div class="step-body">
-              <h4>Verrouille le fichier</h4>
-              <p>Fais un clic droit sur le fichier → <strong>Lire les informations</strong> → coche <strong>"Verrouillé"</strong> pour empêcher Mail de le réécraser. Rouvre Mail.</p>
-            </div>
+        <div class="step">
+          <div class="step-indicator"><div class="step-dot">3</div><div class="step-bar"></div></div>
+          <div class="step-body">
+            <h4>Crée une nouvelle signature et colle</h4>
+            <p>Crée une nouvelle signature, nomme-la <strong>"M&amp;E Consulting"</strong>, puis colle le contenu dans la zone de texte.</p>
+            <span class="kbd">Ctrl + V</span> &nbsp;ou&nbsp; <span class="kbd">Cmd + V</span> &nbsp;sur Mac
           </div>
         </div>
-      </div>
-
-      <!-- THUNDERBIRD -->
-      <div class="tab-panel" id="tab-thunderbird">
-        <div class="steps">
-          <div class="step">
-            <div class="step-indicator"><div class="step-dot">1</div><div class="step-bar"></div></div>
-            <div class="step-body">
-              <h4>Copie le code HTML</h4>
-              <p>Clique sur <strong>"Copier le code HTML"</strong> ci-dessus.</p>
-            </div>
-          </div>
-          <div class="step">
-            <div class="step-indicator"><div class="step-dot">2</div><div class="step-bar"></div></div>
-            <div class="step-body">
-              <h4>Crée un fichier HTML</h4>
-              <p>Ouvre un éditeur de texte (Bloc-notes, TextEdit), colle le code HTML et enregistre le fichier en <strong>signature.html</strong> sur ton bureau.</p>
-            </div>
-          </div>
-          <div class="step">
-            <div class="step-indicator"><div class="step-dot">3</div><div class="step-bar"></div></div>
-            <div class="step-body">
-              <h4>Ouvre les paramètres du compte</h4>
-              <p>Dans Thunderbird : <strong>Menu</strong> (☰) → <strong>Paramètres des comptes</strong>.</p>
-              <span class="tag">☰ → Paramètres des comptes</span>
-            </div>
-          </div>
-          <div class="step">
-            <div class="step-indicator"><div class="step-dot">4</div><div class="step-bar"></div></div>
-            <div class="step-body">
-              <h4>Ajoute la signature</h4>
-              <p>Coche <strong>"Apposer la signature à partir d'un fichier"</strong>, puis sélectionne le fichier <strong>signature.html</strong> que tu as créé. Coche aussi <strong>"Utiliser le format HTML"</strong>.</p>
-            </div>
-          </div>
-          <div class="step">
-            <div class="step-indicator"><div class="step-dot">5</div><div class="step-bar"></div></div>
-            <div class="step-body">
-              <h4>Enregistre</h4>
-              <p>Clique sur <strong>OK</strong>. Ta signature apparaîtra automatiquement dans tes nouveaux emails.</p>
-            </div>
+        <div class="step">
+          <div class="step-indicator"><div class="step-dot">4</div><div class="step-bar"></div></div>
+          <div class="step-body">
+            <h4>Active-la par défaut et enregistre</h4>
+            <p>Sélectionne ta nouvelle signature comme signature par défaut pour les <strong>nouveaux messages</strong> et les <strong>réponses</strong>, puis enregistre.</p>
           </div>
         </div>
       </div>
@@ -630,13 +452,6 @@
           btn.innerHTML = '&lt;/&gt; Copier le code HTML';
         }, 2500);
       });
-    }
-
-    function switchTab(id) {
-      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-      document.getElementById('tab-' + id).classList.add('active');
-      event.currentTarget.classList.add('active');
     }
 
     updatePreview();
